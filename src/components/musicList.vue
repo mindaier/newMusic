@@ -15,7 +15,7 @@
 			>
 				<td class="td1 t1">
 					<div class="num">{{ index + 1 }}</div>
-					<img class="title-img" v-if="item.picUrl" :src="item.picUrl" alt="" />
+					<img class="title-img" :src="item.picUrl" alt="" />
 					<div>{{ item.name }}</div>
 				</td>
 				<!-- <td class="t2">{{ item.song.artists[0].name }}</td> -->
@@ -39,7 +39,8 @@ export default {
 	mounted() {},
 	methods: {
 		goAudioPlay(id) {
-			console.log(id);
+			// console.log(id);
+			this.$router.push("/audioPlay?id=" + id);
 		},
 	},
 	filters: {
@@ -57,4 +58,44 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.table {
+	width: 100%;
+}
+
+tr {
+	width: 100%;
+	height: 73px;
+	line-height: 40px;
+	text-align: left;
+	display: flex;
+}
+td {
+	display: flex;
+}
+td .title-img {
+	width: 70px;
+	height: 70px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.th1 {
+	padding-left: 120px;
+}
+th.t1,
+td.t1 {
+	width: 40%;
+}
+th.t2,
+td.t2 {
+	width: 25%;
+}
+th.t3,
+td.t3 {
+	width: 25%;
+}
+th.t4,
+td.t4 {
+	width: 10%;
+}
+</style>

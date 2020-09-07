@@ -1,6 +1,6 @@
 <template>
 	<div class="newMusic">
-		<input type="text" v-model="inputValue" />
+		<input type="text" v-model="inputValue" @keyup.enter="search" />
 		<musicList ref="musicList"></musicList>
 	</div>
 </template>
@@ -29,7 +29,26 @@ export default {
 	},
 
 	mounted() {},
-	methods: {},
+	methods: {
+		search() {
+			// console.log(333);
+			axios({
+				url: "https://autumnfish.cn/search?keywords=" + this.inputValue,
+			}).then((res) => {
+				let _temp = res.data.result.songs;
+				// console.log(_temp);
+				_temp.forEach((item) => {
+					item.song = {
+						artists: item.artists,
+						album: item.album,
+						duration: item.duration,
+					};
+				});
+				// console.log(_temp);
+				this.$refs.musicList.list = _temp;
+			});
+		},
+	},
 };
 </script>
 
