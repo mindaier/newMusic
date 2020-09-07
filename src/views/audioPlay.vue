@@ -18,14 +18,20 @@ export default {
 	},
 	created() {
 		axios({
-			url: "https://autumnfish.cn/song/url?id=" + this.$route.query.id,
+			url:
+				"https://autumnfish.cn/song/url?id=" +
+				this.$route.query.id +
+				"&abc=22111",
 		}).then((res) => {
 			// console.log(res);
 			// 图片
 			this.musicUrl = res.data.data[0].url;
 		});
 		axios({
-			url: "https://autumnfish.cn/song/detail?id=" + this.$route.query.id,
+			url:
+				"https://autumnfish.cn/song/detail?ids=" +
+				this.$route.query.id +
+				"&abc=22111",
 		}).then((res) => {
 			// console.log(res);
 			// 详情
@@ -60,5 +66,6 @@ export default {
 .musicPlay audio {
 	width: 100%;
 	margin-top: 20px;
+	outline: none;
 }
 </style>

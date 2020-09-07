@@ -33,6 +33,7 @@ export default {
 	data() {
 		return {
 			list: [],
+			type: "mp3",
 		};
 	},
 	created() {},
@@ -40,7 +41,12 @@ export default {
 	methods: {
 		goAudioPlay(id) {
 			// console.log(id);
-			this.$router.push("/audioPlay?id=" + id);
+			// 判断类型 是从哪个页面点击的
+			if (this.type == "mp3") {
+				this.$router.push("/audioPlay?id=" + id);
+			} else if (this.type == "mp4") {
+				this.$router.push("/mvPlay?id=" + id);
+			}
 		},
 	},
 	filters: {
@@ -72,6 +78,7 @@ tr {
 }
 td {
 	display: flex;
+	font-size: 14px;
 }
 td .title-img {
 	width: 70px;

@@ -1,6 +1,11 @@
 <template>
 	<div class="newMusic">
-		<input type="text" v-model="inputValue" @keyup.enter="search" />
+		<input
+			type="text"
+			v-model="inputValue"
+			@keyup.enter="search"
+			placeholder="请输入要搜索的歌曲"
+		/>
 		<musicList ref="musicList"></musicList>
 	</div>
 </template>
@@ -61,5 +66,6 @@ export default {
 	height: 30px;
 	margin-bottom: 20px;
 	outline: none;
+	padding-left: 20px;
 }
 </style>

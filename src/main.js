@@ -8,6 +8,7 @@ import find from "./views/find.vue";
 import newMusic from "./views/newMusic.vue";
 import NewMv from "./views/newMv.vue";
 import audioPlay from "./views/audioPlay";
+import mvPlay from "./views/mvPlay";
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);
@@ -37,6 +38,10 @@ const router = new VueRouter({
 		{
 			path: "/audioPlay",
 			component: audioPlay,
+		},
+		{
+			path: "/mvPlay",
+			component: mvPlay,
 		},
 	],
 });
