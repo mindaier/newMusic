@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
 	data() {
 		return {
@@ -17,21 +17,15 @@ export default {
 		};
 	},
 	created() {
-		axios({
-			url:
-				"https://autumnfish.cn/song/url?id=" +
-				this.$route.query.id +
-				"&abc=22111",
+		this.$axios({
+			url: "/song/url?id=" + this.$route.query.id + "&abc=22111",
 		}).then((res) => {
 			// console.log(res);
 			// 图片
 			this.musicUrl = res.data.data[0].url;
 		});
-		axios({
-			url:
-				"https://autumnfish.cn/song/detail?ids=" +
-				this.$route.query.id +
-				"&abc=22111",
+		this.$axios({
+			url: "/song/detail?ids=" + this.$route.query.id + "&abc=22111",
 		}).then((res) => {
 			// console.log(res);
 			// 详情

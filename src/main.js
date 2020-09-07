@@ -10,8 +10,15 @@ import NewMv from "./views/newMv.vue";
 import audioPlay from "./views/audioPlay";
 import mvPlay from "./views/mvPlay";
 
+import axios from "axios";
+
 Vue.use(ElementUI);
 Vue.use(VueRouter);
+
+const base = axios.create({
+	baseURL: "https://autumnfish.cn",
+});
+Vue.prototype.$axios = base;
 
 const router = new VueRouter({
 	routes: [

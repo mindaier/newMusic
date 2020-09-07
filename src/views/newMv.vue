@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import musicList from "../components/musicList.vue";
 export default {
 	components: {
@@ -23,8 +23,8 @@ export default {
 		};
 	},
 	created() {
-		axios({
-			url: "https://autumnfish.cn/mv/all",
+		this.$axios({
+			url: "/mv/all",
 		}).then((res) => {
 			// console.log(res);
 			let _arr = res.data.data;
@@ -45,7 +45,7 @@ export default {
 	mounted() {},
 	methods: {
 		search() {
-			axios({
+			this.$axios({
 				url:
 					"https://autumnfish.cn/search?type=1004&keywords=" + this.inputValue,
 			}).then((res) => {

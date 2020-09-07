@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import musicList from "../components/musicList.vue";
 export default {
 	components: {
@@ -24,8 +23,8 @@ export default {
 	},
 	created() {
 		// 音乐列表
-		axios({
-			url: "https://autumnfish.cn/personalized/newsong?222",
+		this.$axios({
+			url: "personalized/newsong?222",
 		}).then((res) => {
 			// console.log(res.data.result);
 			// 给子组件musicList 的list数组赋值
@@ -37,8 +36,8 @@ export default {
 	methods: {
 		search() {
 			// console.log(333);
-			axios({
-				url: "https://autumnfish.cn/search?keywords=" + this.inputValue,
+			this.$axios({
+				url: "search?keywords=" + this.inputValue,
 			}).then((res) => {
 				let _temp = res.data.result.songs;
 				// console.log(_temp);

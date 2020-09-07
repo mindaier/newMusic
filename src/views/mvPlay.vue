@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
 	data() {
 		return {
@@ -17,15 +17,15 @@ export default {
 	},
 	created() {
 		// 获取mv播放地址
-		axios({
-			url: "https://autumnfish.cn/mv/url?id=" + this.$route.query.id,
+		this.$axios({
+			url: "mv/url?id=" + this.$route.query.id,
 		}).then((res) => {
 			// console.log(res);
 			this.videoSrc = res.data.data.url;
 		});
 		// 获取mv详情
-		axios({
-			url: "https://autumnfish.cn/mv/detail?mvid=" + this.$route.query.id,
+		this.$axios({
+			url: "mv/detail?mvid=" + this.$route.query.id,
 		}).then((res) => {
 			// console.log(res);
 			this.info = res.data.data;
@@ -49,7 +49,7 @@ export default {
 .mvplay {
 	text-align: center;
 }
-.mvplay audio {
+.mvplay video {
 	width: 800px;
 	height: 500px;
 }
